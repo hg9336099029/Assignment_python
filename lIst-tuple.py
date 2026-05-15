@@ -150,3 +150,70 @@ print("12. Repetition")
 rep = [0] * 5
 print(rep)
 print()
+
+# ------------------- Tuple-----------------------------#
+
+# Basic tuple examples
+t = (10, 20, 30)
+print(t)
+
+empty = ()
+print(empty)
+
+single = (42,)
+print("single-element tuple:", single)
+print()
+
+# Indexing and slicing
+print("first:", t[0])
+print("last:", t[-1])
+print("slice:", t[1:])
+print()
+
+# Immutability demonstration
+try:
+	t[0] = 99
+except TypeError as e:
+	print("immutability demo:", e)
+print()
+
+# Tuple unpacking (assignment)
+x, y, z = t
+print("unpacked:", x, y, z)
+print()
+
+# Swapping variables using tuple assignment
+a = 1
+b = 2
+a, b = b, a
+print("swapped:", a, b)
+print()
+
+# Starred unpacking
+head, *middle, tail = (1, 2, 3, 4, 5)
+print("starred unpack:", head, middle, tail)
+print()
+
+# Methods: count and index
+t2 = (1, 2, 3, 2, 2)
+print("count 2:", t2.count(2))
+print("index of 3:", t2.index(3))
+print()
+
+# Converting between list and tuple
+lst = [1, 2, 3]
+tpl = tuple(lst)
+print("tuple from list:", tpl)
+print("list from tuple:", list(tpl))
+print()
+
+# Concatenation and repetition
+print("concat:", (1, 2) + (3, 4))
+print("repeat:", (1, 2) * 3)
+print()
+
+# Nested tuples
+nested = ((1, 2), (3, 4))
+print("nested tuple:", nested)
+print()
+
