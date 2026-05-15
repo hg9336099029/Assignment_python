@@ -13,6 +13,19 @@ print(d)
 print(nested)
 print()
 
+# ------------------- List of lists (2D lists) -----------------#
+matrix = [
+	[1, 2, 3],
+	[4, 5, 6],
+	[7, 8, 9],
+]
+
+print( matrix[1][2])
+
+# Modify an element
+matrix[0][0] = 10
+print( matrix)
+
 # 2. Indexing
 
 
