@@ -66,3 +66,6 @@ for i in set(data):
 # count frequency of each element
 for i in set(data):
     print(data.count(i))
+
+
+
