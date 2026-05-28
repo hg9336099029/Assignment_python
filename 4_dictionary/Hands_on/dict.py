@@ -82,7 +82,6 @@ thisdict = {
 del thisdict["model"]
 print(thisdict)
 
-
 #---The del keyword can also delete the dictionary completely:
 thisdict = {
   "brand": "Ford",
