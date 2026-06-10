@@ -134,3 +134,20 @@ except ValueError:
 except ZeroDivisionError:
     print("Cannot divide by zero")
 
+
+#-------------#
+try:
+    num = int(input("Enter number: "))
+    print(10 / num)
+
+except ValueError:
+    print("Invalid number")
+
+except ZeroDivisionError:
+    print("Cannot divide by zero")
+
+except Exception as e:
+    print("Some other error:", e)
+
+finally:
+    print("Always executes")

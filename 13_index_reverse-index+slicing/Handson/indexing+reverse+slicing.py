@@ -1,4 +1,4 @@
-# Indexing, Reverse Indexing, and Slicing in One Script
+# Indexing, Reverse Indexing, and Slicing 
 
 s = "Python"
 
@@ -19,8 +19,8 @@ print("s[0:3] =", s[0:3])   # Pyt
 print("s[2:5] =", s[2:5])   # tho
 print("s[:4] =", s[:4])     # Pyth
 print("s[3:] =", s[3:])     # hon
-print("s[::2] =", s[::2])   # Pto
+print("s[::2] =", s[6:1:2])   # Pto
 
 # Reverse String
 
-print("s[::-1] =", s[::-1]) # nohtyP
+print("s[::-2] =", s[:5:-2]) # nohtyP
