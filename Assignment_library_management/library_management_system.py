@@ -32,7 +32,6 @@ def add_book():
         "volume": volume,
         "available": True
     }
-
     print("Book added successfully!")
 
 
@@ -108,13 +107,9 @@ def receive_book():
     collection = Book_store[book_id]["collection"]
 
     if collection:
-
         for bid, book in Book_store.items():
-
             if book["collection"] == collection:
-
                 book["available"] = False
-
                 borrowed_book_record[bid] = {
                     "title": book["title"],
                     "author": book["author"],
@@ -122,11 +117,8 @@ def receive_book():
                     "issue_date": issue_date,
                     "return_date": None
                 }
-
     else:
-
         Book_store[book_id]["available"] = False
-
         borrowed_book_record[book_id] = {
             "title": Book_store[book_id]["title"],
             "author": Book_store[book_id]["author"],
@@ -137,50 +129,39 @@ def receive_book():
 
     if user not in user_record:
         user_record[user] = {"blocked": False}
-
+        
     print("Book issued successfully")
 
 
 def return_book():
 
     book_id = int(input("Enter Book ID: "))
-
     if book_id not in borrowed_book_record:
         print("No issue record found")
         return
-
     user = borrowed_book_record[book_id]["user"]
 
     issue_date = datetime.strptime(borrowed_book_record[book_id]["issue_date"],"%d-%m-%Y" )
     return_date = datetime.now()
-
     days = (return_date - issue_date).days
 
     # Collection handling
     collection = Book_store[book_id]["collection"]
-
     if collection:
-
         ids = []
-
         for bid, book in Book_store.items():
-
             if book["collection"] == collection:
                 book["available"] = True
                 ids.append(bid)
 
         for bid in ids:
             del borrowed_book_record[bid]
-
     else:
-
         Book_store[book_id]["available"] = True
         del borrowed_book_record[book_id]
-
     if days > 14:
         user_record[user]["blocked"] = True
         print(f"User blocked ({days} days late)")
-
     print("Book returned successfully")
 
 
@@ -209,7 +190,6 @@ def search_book_by_author():
         if author in book["author"].lower():
             found = True
             print(f"ID: {book_id} | "f"Title: {book['title']}")
-
     if not found:
         print("No books found")
 
@@ -218,7 +198,6 @@ def search_book_by_author():
 
 
 while True:
-
     print("\n1.Add Book")
     print("2.Remove Book")
     print("3.Clear Entry")
