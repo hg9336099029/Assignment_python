@@ -29,13 +29,18 @@
 # next() fetches one value at a time.
 #---------------------------------------------------------------#
 
-# lst = [10, 20, 30]
+lst = [10, 20, 30]
 
-# lst_it = iter(lst)
+lst_it = iter(lst)
 
-# print(next(lst_it))
-# print(next(lst_it))
-# print(next(lst_it))
+print(lst_it)  # <list_iterator object at 0x...>
+
+while True:
+    try:
+        print(next(lst_it))
+    except StopIteration:
+        print("No more elements available")
+        break
 
 
 # ==========================================================
@@ -224,12 +229,12 @@
 # # for different data types.
 # # ==========================================================
 
-print(type(iter([1, 2, 3])))       # list_iterator
-print(type(iter((1, 2, 3))))       # tuple_iterator
-print(type(iter("abc")))           # str_iterator
-print(type(iter({1, 2, 3})))       # set_iterator
-print(type(iter({"a": 1})))        # dict_keyiterator
-print(type(iter(range(5))))        # range_iterator
+# print(type(iter([1, 2, 3])))       # list_iterator
+# print(type(iter((1, 2, 3))))       # tuple_iterator
+# print(type(iter("abc")))           # str_iterator
+# print(type(iter({1, 2, 3})))       # set_iterator
+# print(type(iter({"a": 1})))        # dict_keyiterator
+# print(type(iter(range(5))))        # range_iterator
 
 
 # # ==========================================================
