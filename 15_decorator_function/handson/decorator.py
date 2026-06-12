@@ -491,3 +491,33 @@ greet()
 # print("Function Name:", sample.__name__)
 # print("Doc String:", sample.__doc__)
 
+routes = {}
+
+def route(path):
+
+    def decorator(func):
+        routes[path] = func
+        return func
+
+    return decorator
+
+
+@route("/")
+def home():
+    return "Home Page"
+
+
+@route("/login")
+def login():
+    return "Login Page"
+
+
+@route("/profile")
+def profile():
+    return "Profile Page"
+
+
+# Simulate browser requests
+print(routes["/"]())
+print(routes["/login"]())
+print(routes["/profile"]())
