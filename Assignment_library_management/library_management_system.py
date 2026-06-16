@@ -7,7 +7,6 @@ user_record = {}
 # ---------------- ADMIN FUNCTIONS ---------------- #
 
 def add_book():
-
     try:
         book_id = int(input("Enter Book ID: "))
     except ValueError:
@@ -15,9 +14,7 @@ def add_book():
         return
 
     if Book_store:
-
         mx = max(Book_store.keys())
-
         if book_id != mx + 1:
             print(f"Book ID must be {mx + 1}")
             return
@@ -29,13 +26,8 @@ def add_book():
     title = input("Enter Book Title: ")
     author = input("Enter Book Author: ")
 
-    collection = input(
-        "Collection Name (leave blank if none): "
-    ).strip()
-
-    volume = input(
-        "Volume Number (leave blank if none): "
-    ).strip()
+    collection = input("Collection Name (leave blank if none): ").strip()
+    volume = input("Volume Number (leave blank if none): ").strip()
 
     Book_store[book_id] = {
         "title": title,
@@ -49,62 +41,45 @@ def add_book():
 
 
 def remove_book():
-
-    title = input(
-        "Enter Book Title to remove: "
-    ).lower()
-
+    title = input("Enter Book Title to remove: ").lower()
     ids = []
     collection = ""
 
     for bid, book in Book_store.items():
-
         if book["title"].lower() == title:
-
             collection = book["collection"]
             break
 
     if collection:
-
         for bid, book in Book_store.items():
-
             if book["collection"] == collection:
-
                 if not book["available"]:
                     print(
                         "Cannot remove. "
                         "Book is currently issued."
                     )
                     return
-
                 ids.append(bid)
-
     else:
-
         for bid, book in Book_store.items():
-
             if book["title"].lower() == title:
-
                 if not book["available"]:
                     print(
                         "Cannot remove. "
                         "Book is currently issued."
                     )
                     return
-
                 ids.append(bid)
-
     if not ids:
         print("Book not found")
         return
-
     for bid in ids:
         del Book_store[bid]
-
     if collection:
         print("Entire collection removed successfully")
     else:
         print("Book removed successfully")
+
 
 
 def clear_entry_book():
@@ -136,8 +111,7 @@ def clear_entry_book():
     for bid in ids:
 
         if not Book_store[bid]["available"]:
-            print(
-                "Cannot clear entry. "
+            print("Cannot clear entry. "
                 "Book is currently issued."
             )
             return
@@ -171,12 +145,7 @@ def view_borrowed_books():
 
     for book_id, data in borrowed_book_record.items():
 
-        due_date = (
-            datetime.strptime(
-                data["issue_date"],
-                "%d-%m-%Y"
-            ) + timedelta(days=14)
-        ).strftime("%d-%m-%Y")
+        due_date = (datetime.strptime( data["issue_date"], "%d-%m-%Y") + timedelta(days=14) ).strftime("%d-%m-%Y")
 
         print(
             f"{book_id:<10}"
